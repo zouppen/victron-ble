@@ -7,6 +7,8 @@ import time
 from enum import Enum
 from typing import Set
 
+from systemd.daemon import notify
+
 from bleak import BleakScanner
 from bleak.backends.device import BLEDevice
 from bleak.backends.scanner import AdvertisementData
@@ -106,6 +108,8 @@ class Scanner(BaseScanner):
             logger.error(e)
             return
         parsed = device.parse(raw_data)
+
+        notify("WATCHDOG=1")
 
         blob = {
             "name": ble_device.name,

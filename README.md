@@ -35,6 +35,10 @@ If you'd like to support development for additional devices, consider [sponsorin
 pip install victron_ble
 ```
 
+## Additional systemd requirements
+
+To use systemd watchdog feature, you need to install libsystemd-dev on your system.
+
 ## Usage
 
 To be able to decrypt the contents of the advertisement, you'll need to first fetch the per-device encryption key from the official Victron application. The method to do this will vary per platform, instructions below:
